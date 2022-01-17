@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"os/exec"
@@ -15,8 +16,8 @@ func Details(c *gin.Context) {
 		})
 		return
 	}
-
-	c.JSON(http.StatusInternalServerError, gin.H{
+	fmt.Println(stdout)
+	c.JSON(http.StatusOK, gin.H{
 		"msg": string(stdout),
 	})
 }
