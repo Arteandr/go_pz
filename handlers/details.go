@@ -16,7 +16,7 @@ func Details(c *gin.Context) {
 		})
 		return
 	}
-	fmt.Println(stdout)
+	fmt.Println(string(stdout))
 	c.JSON(http.StatusOK, gin.H{
 		"msg": string(stdout),
 	})
