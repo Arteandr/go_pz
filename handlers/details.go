@@ -19,7 +19,7 @@ func Details(c *gin.Context) {
 	}
 	text := string(stdout)
 	textArr := strings.Split(text, "\n")
-	fmt.Println(textArr)
+	fmt.Println(len(textArr))
 	c.JSON(http.StatusOK, gin.H{
 		"msg": string(stdout),
 	})
