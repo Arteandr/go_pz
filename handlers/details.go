@@ -5,6 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"os/exec"
+	"strings"
 )
 
 func Details(c *gin.Context) {
@@ -16,7 +17,9 @@ func Details(c *gin.Context) {
 		})
 		return
 	}
-	fmt.Println(string(stdout))
+	text := string(stdout)
+	textArr := strings.Split(text, "\n")
+	fmt.Println(textArr)
 	c.JSON(http.StatusOK, gin.H{
 		"msg": string(stdout),
 	})
